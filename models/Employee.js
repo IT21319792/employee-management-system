@@ -33,12 +33,12 @@ const Employee = sequelize.define('Employee', {
             model: 'departments', // refers to the table name
             key: 'id', // refers to the column name in the departments table
         },
-        onUpdate: 'CASCADE',  // Optional: how to handle updates in the referenced table
-        onDelete: 'SET NULL'  // Optional: how to handle deletions in the referenced table
+        onUpdate: 'CASCADE', 
+        onDelete: 'SET NULL' 
     }
 }, {
     tableName: 'employees',
-    timestamps: true, // Optional: adds createdAt and updatedAt timestamps
+    timestamps: true, 
 });
 
 // Syncing the Employee model to ensure it matches the database
