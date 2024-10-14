@@ -11,13 +11,26 @@ app.use(bodyParser.json());
 
 
 const employeeRoutes = require('./routes/employeeRoutes');
-const departmentRoutes = require('./routes/departmentRoutes');
-const roleRoutes = require('./routes/roleRoutes');
+// const departmentRoutes = require('./routes/employeeRoutes');
+// const roleRoutes = require('./routes/roleRoutes');
 
 
 app.use('/employees', employeeRoutes);
-app.use('/departments', departmentRoutes);
-app.use('/roles', roleRoutes);
+// app.use('/departments', departmentRoutes);
+// app.use('/roles', roleRoutes);
+
+
+// Sync the models with the database
+const syncDatabase = async () => {
+  try {
+      await sequelize.sync({ force: true }); // force: true will drop tables if they exist and recreate them
+      console.log('Database & tables created!');
+  } catch (error) {
+      console.error('Error creating database tables:', error);
+  }
+};
+
+syncDatabase(); // Call the function to sync the database
 
 
 db.authenticate()

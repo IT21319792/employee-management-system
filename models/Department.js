@@ -2,8 +2,16 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Department = sequelize.define('Department', {
-  name: DataTypes.STRING,
-  location: DataTypes.STRING,
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    location: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+}, {
+    tableName: 'departments'
 });
 
 module.exports = Department;
