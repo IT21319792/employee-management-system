@@ -50,3 +50,21 @@ exports.updateEmployee = async (req, res) => {
     res.status(500).json({ error: 'Unable to update employee' });
   }
 };
+
+
+
+// Delete Employee
+exports.deleteEmployee = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const employee = await Employee.findByPk(id);
+    if (employee) {
+      await employee.destroy();
+      res.status(204).json();
+    } else {
+      res.status(404).json({ error: 'Employee not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Unable to delete employee' });
+  }
+};
