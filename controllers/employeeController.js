@@ -34,3 +34,19 @@ exports.getEmployeeById = async (req, res) => {
   }
 };
 
+// Update Employee
+exports.updateEmployee = async (req, res) => {
+  const { id } = req.params;
+  const { first_name, last_name, email, position, salary, department_id } = req.body;
+  try {
+    const employee = await Employee.findByPk(id);
+    if (employee) {
+      await employee.update({ first_name, last_name, email, position, salary, department_id });
+      res.json(employee);
+    } else {
+      res.status(404).json({ error: 'Employee not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Unable to update employee' });
+  }
+};
