@@ -2,6 +2,7 @@ const Employee = require('../models/Employee');
 const Department = require('../models/Department');
 const EmployeeRoles = require('../models/EmployeeRole'); 
 
+
 // Create Employee
 exports.createEmployee = async (req, res) => {
   const { first_name, last_name, email, position, salary, department_id } = req.body;

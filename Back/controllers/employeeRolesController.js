@@ -1,6 +1,6 @@
-const EmployeeRoles = require('../../models/EmployeeRole');
-const Role = require('../../models/Role');
-const Employee = require('../../models/Employee');
+const EmployeeRoles = require('../models/EmployeeRole');
+const Role = require('../models/Role');
+const Employee = require('../models/Employee');
 
 // Assign a role to an employee
 exports.assignRole = async (req, res) => {
