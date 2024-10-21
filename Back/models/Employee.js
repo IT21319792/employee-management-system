@@ -2,6 +2,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
+
 const Employee = sequelize.define('Employee', {
     first_name: {
         type: DataTypes.STRING,
@@ -41,6 +42,9 @@ const Employee = sequelize.define('Employee', {
     tableName: 'employees',
     timestamps: true, 
 });
+
+
+
 
 // Syncing the Employee model to ensure it matches the database
 Employee.sync().then(() => {
