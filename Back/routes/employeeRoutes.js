@@ -8,5 +8,10 @@ router.get('/', employeeController.getAllEmployees);
 router.get('/:id', employeeController.getEmployeeById);
 router.put('/:id', employeeController.updateEmployee);
 router.delete('/:id', employeeController.deleteEmployee);
+router.get('/search', employeeController.searchEmployees);
+router.get('/employees-with-department', employeeController.getEmployeesWithDepartment);
+router.get('/departments', employeeController.getDepartments);
+
+
 
 module.exports = router;
