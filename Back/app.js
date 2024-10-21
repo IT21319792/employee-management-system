@@ -7,17 +7,25 @@ dotenv.config();
 
 const app = express();
 app.use(express.json()); 
+const cors = require('cors');
+app.use(cors());
+
+// Import associations
+require('./models/associations');
+
 
 const employeeRoutes = require('./routes/employeeRoutes');
 const departmentRoutes = require('./routes/departmentsRoutes');
 const roleRoutes = require('./routes/rolesRoutes');
 const employeeRolesRoutes = require('./routes/employeeRoleRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 
 app.use('/employees', employeeRoutes);
 app.use('/departments', departmentRoutes);
 app.use('/roles', roleRoutes);
 app.use('/employee-roles', employeeRolesRoutes);
+app.use('/auth', authRoutes);
 
 
 
